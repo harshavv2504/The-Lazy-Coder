@@ -1,0 +1,8 @@
+
+{
+  "name": "Audio Transcription Hub",
+  "description": "An application to select a folder and record audio, which is then transcribed into text and displayed in copyable cards. This provides a sleek interface for managing project folders and voice notes.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

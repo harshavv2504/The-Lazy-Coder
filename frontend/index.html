@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Lazy Coder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+    <style>
+      :root {
+        /* 🎨 EASY COLOR THEME CONFIGURATION */
+        /* Change these values to switch themes instantly! */
+        
+        /* Dark Theme (Current) */
+        --bg-primary: #0f172a;      /* slate-900 */
+        --bg-secondary: #1e293b;    /* slate-800 */
+        --bg-tertiary: #334155;     /* slate-700 */
+        --bg-input: #1e293b;        /* slate-800 */
+        --bg-card: rgba(30, 41, 59, 0.7); /* slate-800/70 */
+        --bg-button: #334155;       /* slate-700 */
+        --bg-button-hover: #475569; /* slate-600 */
+        
+        --text-primary: #f8fafc;    /* slate-50 */
+        --text-secondary: #e2e8f0;  /* slate-200 */
+        --text-muted: #94a3b8;      /* slate-400 */
+        
+        --border-primary: #334155;  /* slate-700 */
+        --border-secondary: #475569; /* slate-600 */
+        
+        --accent-primary: #3b82f6;  /* blue-500 */
+        --accent-hover: #2563eb;    /* blue-600 */
+        
+        --error-bg: rgba(239, 68, 68, 0.1); /* red-500/10 */
+        --error-text: #f87171;      /* red-400 */
+        --error-border: rgba(239, 68, 68, 0.2); /* red-500/20 */
+        
+        /* Gradient colors */
+        --gradient-from: #0f172a;   /* slate-900 */
+        --gradient-to: rgba(30, 41, 59, 0.6); /* slate-800/60 */
+      }
+      
+      /* 🎨 PRESET THEMES - Uncomment one to use! */
+      
+      /* Blue Theme */
+      /*
+      :root {
+        --bg-primary: #1e3a8a;      --bg-secondary: #1e40af;
+        --bg-tertiary: #2563eb;     --bg-input: #1e40af;
+        --bg-card: rgba(30, 64, 175, 0.7); --bg-button: #2563eb;
+        --bg-button-hover: #1d4ed8; --text-primary: #f8fafc;
+        --text-secondary: #e2e8f0;  --text-muted: #94a3b8;
+        --border-primary: #2563eb;  --border-secondary: #1d4ed8;
+        --accent-primary: #60a5fa;  --accent-hover: #3b82f6;
+        --error-bg: rgba(239, 68, 68, 0.1); --error-text: #f87171;
+        --error-border: rgba(239, 68, 68, 0.2);
+        --gradient-from: #1e3a8a;   --gradient-to: rgba(30, 64, 175, 0.6);
+      }
+      */
+      
+      /* Green Theme */
+      /*
+      :root {
+        --bg-primary: #064e3b;      --bg-secondary: #065f46;
+        --bg-tertiary: #047857;     --bg-input: #065f46;
+        --bg-card: rgba(6, 95, 70, 0.7); --bg-button: #047857;
+        --bg-button-hover: #059669; --text-primary: #f8fafc;
+        --text-secondary: #e2e8f0;  --text-muted: #94a3b8;
+        --border-primary: #047857;  --border-secondary: #059669;
+        --accent-primary: #10b981;  --accent-hover: #059669;
+        --error-bg: rgba(239, 68, 68, 0.1); --error-text: #f87171;
+        --error-border: rgba(239, 68, 68, 0.2);
+        --gradient-from: #064e3b;   --gradient-to: rgba(6, 95, 70, 0.6);
+      }
+      */
+      
+      /* Purple Theme */
+      /*
+      :root {
+        --bg-primary: #581c87;      --bg-secondary: #6b21a8;
+        --bg-tertiary: #7c3aed;     --bg-input: #6b21a8;
+        --bg-card: rgba(107, 33, 168, 0.7); --bg-button: #7c3aed;
+        --bg-button-hover: #8b5cf6; --text-primary: #f8fafc;
+        --text-secondary: #e2e8f0;  --text-muted: #94a3b8;
+        --border-primary: #7c3aed;  --border-secondary: #8b5cf6;
+        --accent-primary: #a78bfa;  --accent-hover: #8b5cf6;
+        --error-bg: rgba(239, 68, 68, 0.1); --error-text: #f87171;
+        --error-border: rgba(239, 68, 68, 0.2);
+        --gradient-from: #581c87;   --gradient-to: rgba(107, 33, 168, 0.6);
+      }
+      */
+      
+      /* 🎨 THEME SWITCHER - Add this to your HTML for easy switching */
+      /*
+      <div style="position: fixed; top: 10px; right: 10px; z-index: 1000; background: var(--bg-card); padding: 10px; border-radius: 8px; border: 1px solid var(--border-primary);">
+        <button onclick="switchTheme('dark')" style="margin: 2px; padding: 5px 10px; background: var(--bg-button); color: var(--text-secondary); border: none; border-radius: 4px; cursor: pointer;">Dark</button>
+        <button onclick="switchTheme('blue')" style="margin: 2px; padding: 5px 10px; background: var(--bg-button); color: var(--text-secondary); border: none; border-radius: 4px; cursor: pointer;">Blue</button>
+        <button onclick="switchTheme('green')" style="margin: 2px; padding: 5px 10px; background: var(--bg-button); color: var(--text-secondary); border: none; border-radius: 4px; cursor: pointer;">Green</button>
+        <button onclick="switchTheme('purple')" style="margin: 2px; padding: 5px 10px; background: var(--bg-button); color: var(--text-secondary); border: none; border-radius: 4px; cursor: pointer;">Purple</button>
+      </div>
+      */
+      
+      body {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      /* For animating new cards */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(1rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        opacity: 0; /* Start hidden */
+        animation: fade-in-up 0.6s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+      }
+
+      /* For animating the error banner */
+      @keyframes fade-in-down {
+        from {
+          opacity: 0;
+          transform: translateY(-1rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-down {
+        opacity: 0; /* Start hidden */
+        animation: fade-in-down 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+      }
+    </style>
+    
+    <script>
+      // 🎨 THEME SWITCHER FUNCTION
+      function switchTheme(theme) {
+        const root = document.documentElement;
+        
+        const themes = {
+          dark: {
+            '--bg-primary': '#0f172a', '--bg-secondary': '#1e293b', '--bg-tertiary': '#334155',
+            '--bg-input': '#1e293b', '--bg-card': 'rgba(30, 41, 59, 0.7)', '--bg-button': '#334155',
+            '--bg-button-hover': '#475569', '--text-primary': '#f8fafc', '--text-secondary': '#e2e8f0',
+            '--text-muted': '#94a3b8', '--border-primary': '#334155', '--border-secondary': '#475569',
+            '--accent-primary': '#3b82f6', '--accent-hover': '#2563eb', '--error-bg': 'rgba(239, 68, 68, 0.1)',
+            '--error-text': '#f87171', '--error-border': 'rgba(239, 68, 68, 0.2)',
+            '--gradient-from': '#0f172a', '--gradient-to': 'rgba(30, 41, 59, 0.6)'
+          },
+          blue: {
+            '--bg-primary': '#1e3a8a', '--bg-secondary': '#1e40af', '--bg-tertiary': '#2563eb',
+            '--bg-input': '#1e40af', '--bg-card': 'rgba(30, 64, 175, 0.7)', '--bg-button': '#2563eb',
+            '--bg-button-hover': '#1d4ed8', '--text-primary': '#f8fafc', '--text-secondary': '#e2e8f0',
+            '--text-muted': '#94a3b8', '--border-primary': '#2563eb', '--border-secondary': '#1d4ed8',
+            '--accent-primary': '#60a5fa', '--accent-hover': '#3b82f6', '--error-bg': 'rgba(239, 68, 68, 0.1)',
+            '--error-text': '#f87171', '--error-border': 'rgba(239, 68, 68, 0.2)',
+            '--gradient-from': '#1e3a8a', '--gradient-to': 'rgba(30, 64, 175, 0.6)'
+          },
+          green: {
+            '--bg-primary': '#064e3b', '--bg-secondary': '#065f46', '--bg-tertiary': '#047857',
+            '--bg-input': '#065f46', '--bg-card': 'rgba(6, 95, 70, 0.7)', '--bg-button': '#047857',
+            '--bg-button-hover': '#059669', '--text-primary': '#f8fafc', '--text-secondary': '#e2e8f0',
+            '--text-muted': '#94a3b8', '--border-primary': '#047857', '--border-secondary': '#059669',
+            '--accent-primary': '#10b981', '--accent-hover': '#059669', '--error-bg': 'rgba(239, 68, 68, 0.1)',
+            '--error-text': '#f87171', '--error-border': 'rgba(239, 68, 68, 0.2)',
+            '--gradient-from': '#064e3b', '--gradient-to': 'rgba(6, 95, 70, 0.6)'
+          },
+          purple: {
+            '--bg-primary': '#581c87', '--bg-secondary': '#6b21a8', '--bg-tertiary': '#7c3aed',
+            '--bg-input': '#6b21a8', '--bg-card': 'rgba(107, 33, 168, 0.7)', '--bg-button': '#7c3aed',
+            '--bg-button-hover': '#8b5cf6', '--text-primary': '#f8fafc', '--text-secondary': '#e2e8f0',
+            '--text-muted': '#94a3b8', '--border-primary': '#7c3aed', '--border-secondary': '#8b5cf6',
+            '--accent-primary': '#a78bfa', '--accent-hover': '#8b5cf6', '--error-bg': 'rgba(239, 68, 68, 0.1)',
+            '--error-text': '#f87171', '--error-border': 'rgba(239, 68, 68, 0.2)',
+            '--gradient-from': '#581c87', '--gradient-to': 'rgba(107, 33, 168, 0.6)'
+          }
+        };
+        
+        if (themes[theme]) {
+          Object.entries(themes[theme]).forEach(([property, value]) => {
+            root.style.setProperty(property, value);
+          });
+          localStorage.setItem('theme', theme);
+        }
+      }
+      
+      // Load saved theme on page load
+      document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        switchTheme(savedTheme);
+      });
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
