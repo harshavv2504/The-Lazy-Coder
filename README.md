@@ -141,9 +141,12 @@ The error is coming from the @frontend/utils/helpers.js file, check the @backend
 
 ### How It Works:
 1. **Scans your project** and builds a map of all filenames to their full paths
-2. **Handles STT quirks** like "dot p y" instead of ".py" or "j son" instead of "json"
-3. **Replaces filenames** with `@full/path/to/file` format for easy identification
-4. **Ignores junk folders** like `node_modules`, `__pycache__`, `.git`, etc.
+2. **Dynamically detects file types** from your actual project (not hardcoded!)
+3. **Handles STT quirks** like "dot p y" instead of ".py" or "j son" instead of "json"
+4. **Replaces filenames** with `@full/path/to/file` format for easy identification
+5. **Ignores junk folders** like `node_modules`, `__pycache__`, `.git`, etc.
+
+**Dynamic File Type Detection**: If your project has `.vue`, `.svelte`, `.go`, `.rs` files, it automatically handles "dot v u e", "dot s v e l t e", "dot g o", "dot r s" without any hardcoding!
 
 This intelligent path mapping saves you from typing out full file paths and makes your documentation much more accurate and useful! 🎯
 
