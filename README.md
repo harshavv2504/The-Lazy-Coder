@@ -116,6 +116,37 @@ the-lazy-coder/
 3. **Smart Processing** - The system transcribes audio and intelligently replaces file paths
 4. **Get Results** - View your transcription with proper file path mappings
 
+## 📝 Example: Input vs Output
+
+### What You Say:
+*"I need to update the app dot p y file. The user authentication is handled in the auth service dot t s file, and I should also check the config dot j son file."*
+
+### What You Get:
+```
+I need to update the @backend/app.py file. The user authentication is handled in the @frontend/services/authService.ts file, and I should also check the @frontend/config.json file.
+```
+
+### Smart Path Replacement in Action:
+- **"app dot p y"** → **"@backend/app.py"** (handles STT pronunciation of file extensions)
+- **"auth service dot t s"** → **"@frontend/services/authService.ts"** (maps spoken filenames to actual paths)
+- **"config dot j son"** → **"@frontend/config.json"** (handles "j son" pronunciation)
+
+### Another Example:
+**Input:** *"The error is coming from the utils dot j s file, check the routes dot p y in the backend"*
+
+**Output:** 
+```
+The error is coming from the @frontend/utils/helpers.js file, check the @backend/routes/monitoring.py in the backend
+```
+
+### How It Works:
+1. **Scans your project** and builds a map of all filenames to their full paths
+2. **Handles STT quirks** like "dot p y" instead of ".py" or "j son" instead of "json"
+3. **Replaces filenames** with `@full/path/to/file` format for easy identification
+4. **Ignores junk folders** like `node_modules`, `__pycache__`, `.git`, etc.
+
+This intelligent path mapping saves you from typing out full file paths and makes your documentation much more accurate and useful! 🎯
+
 ## 🔧 API Endpoints
 
 ### Core Endpoints
