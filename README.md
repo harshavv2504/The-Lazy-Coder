@@ -1,4 +1,8 @@
+<div align="center">
+
 # 🎙️ The Lazy Coder
+
+</div>
 
 <div align="center">
   <img src="https://img.shields.io/badge/React-19.1.1-blue?style=for-the-badge&logo=react" alt="React Version" />
