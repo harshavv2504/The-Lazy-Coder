@@ -37,12 +37,12 @@ This project adheres to a code of conduct that we expect all contributors to fol
 1. Fork the repository on GitHub
 2. Clone your fork locally:
    ```bash
-   git clone https://github.com/yourusername/the-lazy-coder.git
+   git clone https://github.com/harshavv2504/The-Lazy-Coder.git
    cd the-lazy-coder
    ```
 3. Add the upstream repository:
    ```bash
-   git remote add upstream https://github.com/originalowner/the-lazy-coder.git
+   git remote add upstream https://github.com/harshavv2504/The-Lazy-Coder.git
    ```
 
 ## 🛠️ Development Setup
@@ -426,9 +426,9 @@ Contributors will be recognized in:
 
 ## 📞 Contact
 
-- **Maintainer**: [Your Name](mailto:your-email@example.com)
-- **GitHub Issues**: [Create an issue](https://github.com/yourusername/the-lazy-coder/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/the-lazy-coder/discussions)
+- **Maintainer**: [Harshavardhan](mailto:harshavardhan2504@gmail.com)
+- **GitHub Issues**: [Create an issue](https://github.com/harshavv2504/The-Lazy-Coder/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/harshavv2504/The-Lazy-Coder/discussions)
 
 ---
 

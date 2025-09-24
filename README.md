@@ -48,7 +48,7 @@ I wanted a free alternative to paid transcription services like WhisperFlow, so 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/the-lazy-coder.git
+git clone https://github.com/harshavv2504/The-Lazy-Coder.git
 cd the-lazy-coder
 ```
 
@@ -248,9 +248,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/yourusername/the-lazy-coder/issues)
-- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/yourusername/the-lazy-coder/discussions)
-- 📧 **Contact**: [your-email@example.com](mailto:your-email@example.com)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/harshavv2504/The-Lazy-Coder/issues)
+- 💡 **Feature Requests**: [GitHub Discussions](https://github.com/harshavv2504/The-Lazy-Coder/discussions)
+- 📧 **Contact**: [harshavardhan2504@gmail.com](mailto:harshavardhan2504@gmail.com)
 
 ---
 
